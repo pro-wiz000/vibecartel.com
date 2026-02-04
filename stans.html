@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markets - CryptoVault</title>
+    <script>
+        // Load theme immediately to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/templatemo-crypto-style.css">
+    <link rel="stylesheet" href="css/templatemo-crypto-pages.css">
+    <!--
+
+TemplateMo 609 Crypto Vault
+
+https://templatemo.com/tm-609-crypto-vault
+
+-->
+</head>
+<body>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">VC</div>
+                <span class="logo-text">VibeCartel</span>
+            </div>
+
+            <nav class="nav-section">
+                <div class="nav-label">Main Menu</div>
+                <a href="index.html" class="nav-item active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="stans.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                    stans
+                </a>
+                <a href="voltage.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    voltage
+                </a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-label">Account</div>
+                <a href="settings.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="theme-toggle">
+                    <div class="theme-toggle-label">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        Light Mode
+                    </div>
+                    <div class="theme-switch" id="themeSwitch"></div>
+                </div>
+                <button class="logout-btn" onclick="window.location.href='login.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Stans</h1>
+                <p>Live Engagement Cap</p>
+            </div>
+
+            <!-- Market Stats -->
+            <div class="market-stats">
+                <div class="market-stat">
+                    <div class="market-stat-label">Total Niche Cap</div>
+                    <div class="market-stat-value">+9.0B</div>
+                    <div class="market-stat-change positive">+2.4%</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-label">24h Engagement</div>
+                    <div class="market-stat-value">99+</div>
+                    <div class="market-stat-change positive">+5.8%</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-label">Active Engagement</div>
+                    <div class="market-stat-value">99+</div>
+                    <div class="market-stat-change positive">+0.3%</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-label">Active Engagers</div>
+                    <div class="market-stat-value">+9.0B</div>
+                    <div class="market-stat-change positive">+2.4%</div>
+                </div>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="search-filters">
+                <div class="search-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Favorites</button>
+                    <button class="filter-tab">Newbies</button>
+                    <button class="filter-tab">Oldies</button>
+                    <button class="filter-tab">Archive</button>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Market Table -->
+                <div class="card">
+                    <table class="market-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Peeps</th>
+                                <th class="text-right">Phone N0.</th>
+                                <th class="text-right">Country</th>
+                                <th class="text-right">Spec.</th>
+                                <th class="text-right">Age</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="coin-rank">1</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon btc"><img  width="40" height="40" src="/Image/Olympimages.jpg"></div>
+                                        <div>
+                                            <div class="coin-name">Libaby</div>
+                                            <div class="coin-symbol">LIL</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+234**********</td>
+                                <td class="change-cell positive">Nigeria</td>
+                                <td class="volume-cell">Perky</td>
+                                <td class="mcap-cell">18+</td>
+                                <td><button class="star-btn active">★</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">2</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon eth"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.09 AM (2).jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Chioma</div>
+                                            <div class="coin-symbol">OMA</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+234**********</td>
+                                <td class="change-cell positive">Nigeria</td>
+                                <td class="volume-cell">BBW</td>
+                                <td class="mcap-cell">40+</td>
+                                <td><button class="star-btn active">★</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">3</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon usdt"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.10 AM (1).jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Blessing</div>
+                                            <div class="coin-symbol">BLE</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+1***********</td>
+                                <td class="change-cell positive">USA</td>
+                                <td class="volume-cell">Ebony</td>
+                                <td class="mcap-cell">30+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">4</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon bnb"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.09 AM (1).jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Lyris</div>
+                                            <div class="coin-symbol">LYR</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+234**********</td>
+                                <td class="change-cell negative">Nigeria</td>
+                                <td class="volume-cell">Ebony</td>
+                                <td class="mcap-cell">21+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">5</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon sol"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.11 AM.jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Mercy</div>
+                                            <div class="coin-symbol">MEHH</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+1**********</td>
+                                <td class="change-cell positive">Canada</td>
+                                <td class="volume-cell">Tall</td>
+                                <td class="mcap-cell">40+</td>
+                                <td><button class="star-btn active">★</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">6</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon xrp"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.09 AM.jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Ozioma</div>
+                                            <div class="coin-symbol">OZ</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+234**********</td>
+                                <td class="change-cell negative">Nigeria</td>
+                                <td class="volume-cell">BBW</td>
+                                <td class="mcap-cell">30+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">7</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon ada"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.10 AM.jpeg"></div>
+                                        <div>
+                                            <div class="coin-name">Linda</div>
+                                            <div class="coin-symbol">linny</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+1***********</td>
+                                <td class="change-cell positive">USA</td>
+                                <td class="volume-cell">BBW</td>
+                                <td class="mcap-cell">50+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">8</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon doge"><img  width="40" height="40" src="/Image/PmahraUntitled (1).jpg"></div>
+                                        <div>
+                                            <div class="coin-name">Sheikha Mahra</div>
+                                            <div class="coin-symbol">SM</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+9714*******</td>
+                                <td class="change-cell positive">Dubai</td>
+                                <td class="volume-cell">Perky</td>
+                                <td class="mcap-cell">30+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">9</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon dot"><img  width="40" height="40" src="/Image/Beyimages.jpg"></div>
+                                        <div>
+                                            <div class="coin-name">Beyonce</div>
+                                            <div class="coin-symbol">BEY</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+1***********</td>
+                                <td class="change-cell positive">USA</td>
+                                <td class="volume-cell">Perky</td>
+                                <td class="mcap-cell">40+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coin-rank">10</span></td>
+                                <td>
+                                    <div class="coin-cell">
+                                        <div class="coin-icon matic"><img  width="40" height="40" src="/Image/PdianaUntitled (1).jpg"></div>
+                                        <div>
+                                            <div class="coin-name">Princess Diana</div>
+                                            <div class="coin-symbol">DII</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-cell">+1***********</td>
+                                <td class="change-cell negative">USA</td>
+                                <td class="volume-cell">Slim</td>
+                                <td class="mcap-cell">30+</td>
+                                <td><button class="star-btn">☆</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <!-- Trending -->
+                    <div class="card" style="margin-bottom: 24px;">
+                        <div class="card-header">
+                            <h3 class="card-title">🔥 Trending</h3>
+                        </div>
+                        <div class="trending-list">
+                            <div class="trending-item">
+                                <div class="trending-rank">1</div>
+                                <div class="trending-coin">
+                                    <div class="trending-icon" style="background: linear-gradient(135deg, #c3a634, #ba9f33);"><img  width="40" height="40" src="/Image/PdianaUntitled (1).jpg"></div>
+                                    <div>
+                                        <div class="trending-name">Princess Diana</div>
+                                        <div class="trending-symbol">DII</div>
+                                    </div>
+                                </div>
+                                <div class="trending-change positive">+1************</div>
+                            </div>
+                            <div class="trending-item">
+                                <div class="trending-rank">2</div>
+                                <div class="trending-coin">
+                                    <div class="trending-icon" style="background: linear-gradient(135deg, #9945ff, #14f195);"><img  width="40" height="40" src="/Image/PmahraUntitled (1).jpg"></div>
+                                    <div>
+                                        <div class="trending-name">Sheikha Mahra</div>
+                                        <div class="trending-symbol">SM</div>
+                                    </div>
+                                </div>
+                                <div class="trending-change positive">+9714*******</div>
+                            </div>
+                            <div class="trending-item">
+                                <div class="trending-rank">3</div>
+                                <div class="trending-coin">
+                                    <div class="trending-icon" style="background: linear-gradient(135deg, #e6007a, #c40068);"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.10 AM.jpeg"></div>
+                                    <div>
+                                        <div class="trending-name">Linda</div>
+                                        <div class="trending-symbol">LINNY</div>
+                                    </div>
+                                </div>
+                                <div class="trending-change positive">+1***********</div>
+                            </div>
+                            <div class="trending-item">
+                                <div class="trending-rank">4</div>
+                                <div class="trending-coin">
+                                    <div class="trending-icon" style="background: linear-gradient(135deg, #0033ad, #002276);"><img  width="40" height="40" src="/Image/WhatsApp Image 2026-02-04 at 2.37.11 AM.jpeg"></div>
+                                    <div>
+                                        <div class="trending-name">Mercy</div>
+                                        <div class="trending-symbol">MEHH</div>
+                                    </div>
+                                </div>
+                                <div class="trending-change positive">+1***********</div>
+                            </div>
+                            <div class="trending-item">
+                                <div class="trending-rank">5</div>
+                                <div class="trending-coin">
+                                    <div class="trending-icon" style="background: linear-gradient(135deg, #f7931a, #c77b15);"><img width="40" height="40" src="/Image/Olympimages.jpg"></div>
+                                    <div>
+                                        <div class="trending-name">Libaby</div>
+                                        <div class="trending-symbol">LIL</div>
+                                    </div>
+                                </div>
+                                <div class="trending-change positive">+234**********</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fear & Greed Index -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Engagement Index</h3>
+                        </div>
+                        <div class="fear-greed">
+                            <div class="fear-greed-meter">
+                                <div class="fear-greed-indicator" style="left: 68%;"></div>
+                            </div>
+                            <div class="fear-greed-labels">
+                                <span>Less</span>
+                                <span>Neutral</span>
+                                <span>Extreme</span>
+                            </div>
+                            <div class="fear-greed-value">
+                                <div class="fear-greed-number">68</div>
+                                <div class="fear-greed-label">Neutral</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="copyright">
+                Copyright &copy; 2026 VibeCartel. Designed by <a href="https://templatemo.com" target="_blank" rel="nofollow">pro-wiz000</a>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/templatemo-crypto-script.js"></script>
+</body>
+</html>
